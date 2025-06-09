@@ -1,0 +1,3 @@
+broken_large -> vfx
+broken_small -> frt
+contamination -> plk
