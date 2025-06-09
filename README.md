@@ -19,6 +19,38 @@ The overall process is as follows:
 1. During the training phase, anomaly images and corresponding masks for each class are learned simultaneously.
 2. In the inference phase, an anomaly mask is first generated, followed by the generation of an anomaly image that aligns with the given mask.
 
+### How to Use the Docker File
+
+Below are the Linux terminal commands to build and run the Docker environment.
+
+#### 1. Build the Docker image
+
+```bash
+docker build -f anodapter.dockerfile -t anodapter_env_image .
+```
+
+#### 2. Run a container from the image
+
+```bash
+docker run --shm-size=8G --gpus all -it --name <container_name> \
+  -v <host_path>:<container_path> \
+  -v $PWD:/workspace anodapter_env_image bash
+```
+
+- `--shm-size=8G`: Shared memory size (recommended for PyTorch)
+- `--gpus all`: Enables GPU usage inside the container
+- `--name <container_name>`: Name of the Docker container
+- `-v <host_path>:<container_path>`: Mounts a host directory into the container
+- `-v $PWD:/workspace`: Mounts the current working directory to `/workspace` inside the container
+- `anodapter_env_image`: Name of the Docker image to be used
+
+Example:
+```
+docker run --shm-size=8G --gpus all -it --name diff_try \
+  -v /home/smk/dataset:/home \
+  -v $PWD:/workspace anodapter_env_image bash
+```
+
 ## Prepare
 
 
