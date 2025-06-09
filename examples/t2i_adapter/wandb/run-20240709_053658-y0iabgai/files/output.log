@@ -1,0 +1,100 @@
+07/09/2024 05:37:07 - INFO - __main__ - ***** Running training *****
+07/09/2024 05:37:07 - INFO - __main__ -   Num examples = 50000
+07/09/2024 05:37:07 - INFO - __main__ -   Num batches each epoch = 10000
+07/09/2024 05:37:07 - INFO - __main__ -   Num Epochs = 6
+07/09/2024 05:37:07 - INFO - __main__ -   Instantaneous batch size per device = 1
+07/09/2024 05:37:07 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 20
+07/09/2024 05:37:07 - INFO - __main__ -   Gradient Accumulation steps = 4
+07/09/2024 05:37:07 - INFO - __main__ -   Total optimization steps = 15000
+Steps:   0%|                                                                                                                                                                                        | 0/15000 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "train_t2i_adapter_sdxl.py", line 1330, in <module>
+    main(args)
+  File "train_t2i_adapter_sdxl.py", line 1174, in main
+    for step, batch in enumerate(train_dataloader):
+  File "/opt/conda/lib/python3.8/site-packages/accelerate/data_loader.py", line 454, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/opt/conda/lib/python3.8/site-packages/torch/_utils.py", line 705, in reraise
+    raise exception
+AttributeError: Caught AttributeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = self.dataset.__getitems__(possibly_batched_index)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/arrow_dataset.py", line 2870, in __getitems__
+    batch = self.__getitem__(keys)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/arrow_dataset.py", line 2866, in __getitem__
+    return self._getitem(key)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/arrow_dataset.py", line 2851, in _getitem
+    formatted_output = format_table(
+  File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 633, in format_table
+    return formatter(pa_table, query_type=query_type)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 401, in __call__
+    return self.format_batch(pa_table)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 515, in format_batch
+    batch = self.python_features_decoder.decode_batch(batch)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 222, in decode_batch
+    return self.features.decode_batch(batch) if self.features else batch
+  File "/opt/conda/lib/python3.8/site-packages/datasets/features/features.py", line 2029, in decode_batch
+    [
+  File "/opt/conda/lib/python3.8/site-packages/datasets/features/features.py", line 2030, in <listcomp>
+    decode_nested_example(self[column_name], value, token_per_repo_id=token_per_repo_id)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/features/features.py", line 1351, in decode_nested_example
+    return schema.decode_example(obj, token_per_repo_id=token_per_repo_id)
+  File "/opt/conda/lib/python3.8/site-packages/datasets/features/image.py", line 189, in decode_example
+    if image.getexif().get(PIL.Image.ExifTags.Base.Orientation) is not None:
+  File "/opt/conda/lib/python3.8/site-packages/PIL/Image.py", line 65, in __getattr__
+    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
+AttributeError: module 'PIL.Image' has no attribute 'ExifTags'
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "train_t2i_adapter_sdxl.py", line 1330, in <module>
+[rank0]:     main(args)
+[rank0]:   File "train_t2i_adapter_sdxl.py", line 1174, in main
+[rank0]:     for step, batch in enumerate(train_dataloader):
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/accelerate/data_loader.py", line 454, in __iter__
+[rank0]:     current_batch = next(dataloader_iter)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+[rank0]:     return self._process_data(data)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+[rank0]:     data.reraise()
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/torch/_utils.py", line 705, in reraise
+[rank0]:     raise exception
+[rank0]: AttributeError: Caught AttributeError in DataLoader worker process 0.
+[rank0]: Original Traceback (most recent call last):
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+[rank0]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+[rank0]:     data = self.dataset.__getitems__(possibly_batched_index)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/arrow_dataset.py", line 2870, in __getitems__
+[rank0]:     batch = self.__getitem__(keys)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/arrow_dataset.py", line 2866, in __getitem__
+[rank0]:     return self._getitem(key)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/arrow_dataset.py", line 2851, in _getitem
+[rank0]:     formatted_output = format_table(
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 633, in format_table
+[rank0]:     return formatter(pa_table, query_type=query_type)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 401, in __call__
+[rank0]:     return self.format_batch(pa_table)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 515, in format_batch
+[rank0]:     batch = self.python_features_decoder.decode_batch(batch)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/formatting/formatting.py", line 222, in decode_batch
+[rank0]:     return self.features.decode_batch(batch) if self.features else batch
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/features/features.py", line 2029, in decode_batch
+[rank0]:     [
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/features/features.py", line 2030, in <listcomp>
+[rank0]:     decode_nested_example(self[column_name], value, token_per_repo_id=token_per_repo_id)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/features/features.py", line 1351, in decode_nested_example
+[rank0]:     return schema.decode_example(obj, token_per_repo_id=token_per_repo_id)
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/datasets/features/image.py", line 189, in decode_example
+[rank0]:     if image.getexif().get(PIL.Image.ExifTags.Base.Orientation) is not None:
+[rank0]:   File "/opt/conda/lib/python3.8/site-packages/PIL/Image.py", line 65, in __getattr__
+[rank0]:     raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
+[rank0]: AttributeError: module 'PIL.Image' has no attribute 'ExifTags'

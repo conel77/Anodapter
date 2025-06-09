@@ -1,0 +1,21 @@
+07/09/2024 05:48:59 - INFO - __main__ - ***** Running training *****
+07/09/2024 05:48:59 - INFO - __main__ -   Num examples = 50000
+07/09/2024 05:48:59 - INFO - __main__ -   Num batches each epoch = 10000
+07/09/2024 05:48:59 - INFO - __main__ -   Num Epochs = 6
+07/09/2024 05:48:59 - INFO - __main__ -   Instantaneous batch size per device = 1
+07/09/2024 05:48:59 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 20
+07/09/2024 05:48:59 - INFO - __main__ -   Gradient Accumulation steps = 4
+07/09/2024 05:48:59 - INFO - __main__ -   Total optimization steps = 15000
+Steps:   0%|                                                                                                                                                                                        | 0/15000 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "train_t2i_adapter_sdxl.py", line 1330, in <module>
+    main(args)
+  File "train_t2i_adapter_sdxl.py", line 1217, in main
+    fq
+NameError: name 'fq' is not defined
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "train_t2i_adapter_sdxl.py", line 1330, in <module>
+[rank0]:     main(args)
+[rank0]:   File "train_t2i_adapter_sdxl.py", line 1217, in main
+[rank0]:     fq
+[rank0]: NameError: name 'fq' is not defined
+<class 'list'>

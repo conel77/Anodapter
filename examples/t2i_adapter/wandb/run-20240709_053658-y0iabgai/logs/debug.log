@@ -1,0 +1,29 @@
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Current SDK version is 0.17.3
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Configure stats pid to 993628
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Loading settings from /root/.config/wandb/settings
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Loading settings from /home/diffusers/examples/t2i_adapter/wandb/settings
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'examples/t2i_adapter/train_t2i_adapter_sdxl.py', 'program_abspath': '/home/diffusers/examples/t2i_adapter/train_t2i_adapter_sdxl.py', 'program': 'train_t2i_adapter_sdxl.py'}
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_init.py:_log_setup():520] Logging user logs to /home/diffusers/examples/t2i_adapter/wandb/run-20240709_053658-y0iabgai/logs/debug.log
+2024-07-09 05:36:58,410 INFO    MainThread:993628 [wandb_init.py:_log_setup():521] Logging internal logs to /home/diffusers/examples/t2i_adapter/wandb/run-20240709_053658-y0iabgai/logs/debug-internal.log
+2024-07-09 05:36:58,411 INFO    MainThread:993628 [wandb_init.py:init():560] calling init triggers
+2024-07-09 05:36:58,411 INFO    MainThread:993628 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {}
+2024-07-09 05:36:58,411 INFO    MainThread:993628 [wandb_init.py:init():610] starting backend
+2024-07-09 05:36:58,411 INFO    MainThread:993628 [wandb_init.py:init():614] setting up manager
+2024-07-09 05:36:58,414 INFO    MainThread:993628 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-07-09 05:36:58,415 INFO    MainThread:993628 [wandb_init.py:init():622] backend started and connected
+2024-07-09 05:36:58,419 INFO    MainThread:993628 [wandb_init.py:init():711] updated telemetry
+2024-07-09 05:36:58,624 INFO    MainThread:993628 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-07-09 05:36:59,142 INFO    MainThread:993628 [wandb_run.py:_on_init():2402] communicating current version
+2024-07-09 05:36:59,209 INFO    MainThread:993628 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.17.4 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-07-09 05:36:59,209 INFO    MainThread:993628 [wandb_init.py:init():795] starting run threads in backend
+2024-07-09 05:37:07,047 INFO    MainThread:993628 [wandb_run.py:_console_start():2380] atexit reg
+2024-07-09 05:37:07,047 INFO    MainThread:993628 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-07-09 05:37:07,047 INFO    MainThread:993628 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-07-09 05:37:07,047 INFO    MainThread:993628 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-07-09 05:37:07,050 INFO    MainThread:993628 [wandb_init.py:init():838] run started, returning control to user process
+2024-07-09 05:37:07,051 INFO    MainThread:993628 [wandb_run.py:_config_callback():1382] config_cb None None {'pretrained_model_name_or_path': 'stabilityai/stable-diffusion-xl-base-1.0', 'pretrained_vae_model_name_or_path': None, 'adapter_model_name_or_path': None, 'revision': None, 'variant': None, 'tokenizer_name': None, 'output_dir': '/home/T2I-Adapter/output', 'cache_dir': None, 'seed': 42, 'resolution': 256, 'detection_resolution': None, 'crops_coords_top_left_h': 0, 'crops_coords_top_left_w': 0, 'train_batch_size': 1, 'num_train_epochs': 6, 'max_train_steps': 15000, 'checkpointing_steps': 500, 'checkpoints_total_limit': 3, 'resume_from_checkpoint': None, 'gradient_accumulation_steps': 4, 'gradient_checkpointing': False, 'learning_rate': 1e-05, 'scale_lr': False, 'lr_scheduler': 'constant', 'lr_warmup_steps': 500, 'lr_num_cycles': 1, 'lr_power': 1.0, 'use_8bit_adam': False, 'dataloader_num_workers': 1, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'adam_weight_decay': 0.01, 'adam_epsilon': 1e-08, 'max_grad_norm': 1.0, 'push_to_hub': False, 'hub_token': None, 'hub_model_id': None, 'logging_dir': 'logs', 'allow_tf32': False, 'report_to': 'wandb', 'mixed_precision': 'fp16', 'enable_xformers_memory_efficient_attention': False, 'set_grads_to_none': False, 'dataset_name': 'fusing/fill50k', 'dataset_config_name': None, 'train_data_dir': None, 'image_column': 'image', 'conditioning_image_column': 'conditioning_image', 'caption_column': 'text', 'max_train_samples': None, 'proportion_empty_prompts': 0, 'num_validation_images': 4, 'validation_steps': 100, 'tracker_project_name': 'sd_xl_train_t2iadapter'}
