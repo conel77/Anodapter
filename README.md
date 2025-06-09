@@ -33,6 +33,38 @@ torch==2.3.0
 
 Download the [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/research/datasets/mvtec-ad/) dataset and unzip the archive files under ```./home```.
 
+### Dataset Structure
+
+To train the model, please organize your dataset directory as follows:
+
+```
+<dataset_name>/
+├── <class_name>/
+│ ├── <anomaly_type>/
+│ │ ├── images/ # Contains anomaly images
+│ │ ├── masks/ # Contains corresponding anomaly masks
+│ │ └── normals/ # Contains normal (non-defective) images
+```
+
+- `<dataset_name>`: Root folder of the dataset
+- `<class_name>`: Object or category name
+- `<anomaly_type>`: Type of anomaly within the class
+
+Ensure that each folder is correctly populated for the training pipeline to work properly.
+
+### Note on Object Masks
+
+- **Object masks** (i.e., masks separating the object from the background) must be **consistent across all images within a class**.
+- Object masks are generated using the **U<sup>2</sup>-Net** model.
+- Since U<sup>2</sup>-Net performance may vary across images, the quality of the generated object masks may differ significantly.
+- If you're using a **custom dataset**, it is recommended to run the object mask generation process **multiple times** and select the best-quality masks manually.
+- The U<sup>2</sup>-Net code can be cloned from the following repository:  
+  [https://github.com/xuebinqin/U-2-Net](https://github.com/xuebinqin/U-2-Net)
+
+> ⚠️ Although `train_anodapter.py` includes functionality to generate object masks, it runs only **once per image**, which might result in **low-quality masks**.
+
+- For commonly used datasets **MVTec**, high-quality object masks are already provided in the `object_mask` directory.
+
 ### (3) Checkpoint for Stable-Diffusion 1.4
 
 Download the official checkpoint of the stable diffusion model:
